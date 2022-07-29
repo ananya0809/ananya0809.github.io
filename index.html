@@ -85,8 +85,11 @@
         console.log(Date.now());
         let recording = false;
 
-        let data = [ 
-            ["x","y","z"],
+        let data_x = ""
+        let data_y = ""
+        let data_z = ""
+        // = [ 
+          //  ["x","y","z"],
              // [251, 365,7], [4, 45,87], [64, 5,32],
             // [251, 365,7], [4, 45,87], [64, 5,32],
             // [251, 365,7], [4, 45,87], [64, 5,32],
@@ -123,6 +126,7 @@
             document.getElementById("valX").innerText = "Acceleration along the X-axis " + x;
             document.getElementById("valY").innerText = "Acceleration along the Y-axis " + y;
             document.getElementById("valZ").innerText = "Acceleration along the Z-axis " + z;
+
            
             if (recording) {
                 if (reading_count < threshold) {
@@ -131,7 +135,10 @@
                     if (temp_time - current_time > 50) {
                         let str ="<tr><td>" + x + "</td><td>" + y + "</td><td>" + z +"</td></tr>";
                         document.getElementById("tbody").innerHTML += str;
-                        data.push([x,y,z]);
+                        // data.push([x,y,z]);
+                        data_x.push(x);
+                        data_y.push(y);
+                        data_z.push(z);
                         current_time = Date.now();
                         reading_count++;
                     }
